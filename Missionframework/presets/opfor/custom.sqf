@@ -140,3 +140,33 @@ opfor_air = [
     "O_Plane_CAS_02_dynamicLoadout_F",                                  // To-199 Neophron (CAS)
     "O_Plane_Fighter_02_F"                                              // To-201 Shikra
 ];
+
+/* Enemy artillery, used for AI fire missions. These are never part of the sector defender, patrol or
+battlegroup pools, they are spawned on demand by the artillery system and anchored to a single sector. */
+opfor_arty = [
+    "O_MBT_02_arty_F"                                                   // 2S9 Sochor
+];
+
+/* Enemy fielding prices, in the same [classname, supplies, ammo, fuel] format as the blufor build lists.
+Every class used by the pools above should have an entry here, so the enemy economy can charge for spawns.
+Values mirror the closest blufor counterpart in presets/blufor/custom.sqf, keep them in step if that changes. */
+opfor_price = [
+    ["O_LSV_02_armed_F",75,40,50],                                      // Qilin (armed)          ~ Prowler (HMG)
+    ["O_LSV_02_AT_F",75,60,50],                                         // Qilin (AT)             ~ Prowler (AT)
+    ["O_MRAP_02_hmg_F",100,40,50],                                      // Ifrit (HMG)            ~ Hunter (HMG)
+    ["O_MRAP_02_gmg_F",100,60,50],                                      // Ifrit (GMG)            ~ Hunter (GMG)
+    ["O_Truck_03_transport_F",125,0,75],                                // Tempest Transport      ~ HEMTT Transport
+    ["O_Truck_03_covered_F",125,0,75],                                  // Tempest (Covered)      ~ HEMTT (Covered)
+    ["O_APC_Wheeled_02_rcws_F",200,75,125],                             // MSE-3 Marid            ~ AMV-7 Marshall
+    ["O_APC_Tracked_02_cannon_F",300,100,150],                          // BTR-K Kamysh           ~ IFV-6c Panther
+    ["O_APC_Tracked_02_AA_F",300,250,175],                              // ZSU-39 Tigris          ~ IFV-6a Cheetah
+    ["O_MBT_02_cannon_F",400,300,200],                                  // T-100 Varsuk           ~ M2A1 Slammer
+    ["O_MBT_04_cannon_F",500,350,225],                                  // T-140 Angara           ~ M2A4 Slammer UP
+    ["O_MBT_04_command_F",500,350,225],                                 // T-140K Angara          ~ M2A4 Slammer UP
+    ["O_MBT_02_arty_F",600,1250,300],                                   // 2S9 Sochor             ~ M4 Scorcher
+    ["O_Heli_Light_02_dynamicLoadout_F",200,100,100],                   // Po-30 Orca (Armed)     ~ AH-9 Pawnee
+    ["O_Heli_Transport_04_bench_F",275,0,175],                          // Mi-290 Taru (Bench)    ~ CH-49 Mohawk
+    ["O_Heli_Attack_02_dynamicLoadout_F",500,400,200],                  // Mi-48 Kajman           ~ AH-99 Blackfoot
+    ["O_Plane_CAS_02_dynamicLoadout_F",1000,800,400],                   // To-199 Neophron (CAS)  ~ A-164 Wipeout (CAS)
+    ["O_Plane_Fighter_02_F",1500,1750,450]                              // To-201 Shikra          ~ F/A-181 Black Wasp II
+];

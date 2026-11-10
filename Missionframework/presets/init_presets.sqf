@@ -191,6 +191,8 @@ opfor_battlegroup_vehicles_low_intensity    = opfor_battlegroup_vehicles_low_int
 opfor_troup_transports                      = opfor_troup_transports                    select {[_x] call KPLIB_fnc_checkClass};
 opfor_choppers                              = opfor_choppers                            select {[_x] call KPLIB_fnc_checkClass};
 opfor_air                                   = opfor_air                                 select {[_x] call KPLIB_fnc_checkClass};
+opfor_arty                                  = (missionNamespace getVariable ["opfor_arty", []]) select {[_x] call KPLIB_fnc_checkClass};
+opfor_price                                 = (missionNamespace getVariable ["opfor_price", []]) select {[_x select 0] call KPLIB_fnc_checkClass};
 
 // Resistance
 KP_liberation_guerilla_units                = KP_liberation_guerilla_units              select {[_x] call KPLIB_fnc_checkClass};
@@ -289,10 +291,14 @@ KPLIB_o_allVeh_classes  = [];
     opfor_battlegroup_vehicles_low_intensity,
     opfor_troup_transports,
     opfor_choppers,
-    opfor_air
+    opfor_air,
+    opfor_arty
 ];
 KPLIB_o_allVeh_classes = KPLIB_o_allVeh_classes apply {toLower _x};
 KPLIB_o_allVeh_classes = KPLIB_o_allVeh_classes arrayIntersect KPLIB_o_allVeh_classes;
+
+// Enemy vehicle prices, keyed by lowercase classname: [[classname, supplies, ammo, fuel], ...]
+KPLIB_o_priceIndex = opfor_price apply {[toLower (_x select 0), _x select 1, _x select 2, _x select 3]};
 
 // All regular opfor soldier classnames
 KPLIB_o_inf_classes = [opfor_sentry, opfor_rifleman, opfor_grenadier, opfor_squad_leader, opfor_team_leader, opfor_marksman, opfor_machinegunner, opfor_heavygunner, opfor_medic, opfor_rpg, opfor_at, opfor_aa, opfor_officer, opfor_sharpshooter, opfor_sniper,opfor_engineer];
